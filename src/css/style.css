@@ -168,6 +168,7 @@ button {
 
 /* Start cart list card styles */
 .cart-card {
+  width: 100%;
   display: grid;
   grid-template-columns: 25% auto 15%;
   font-size: var(--small-font);
