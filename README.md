@@ -21,4 +21,5 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 
 
 ## URL Netlify
-https://sparkly-khapse-f7127c.netlify.app
+old link: https://sparkly-khapse-f7127c.netlify.app
+new linkk from Viviana sept 27th: https://unrivaled-dieffenbachia-85bd72.netlify.app/
