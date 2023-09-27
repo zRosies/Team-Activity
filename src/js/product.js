@@ -2,9 +2,9 @@ import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 
 function addProductToCart(product) {
-  console.log('asjasiiasj');
- 
- let currentCart = getLocalStorage("so-cart") || [];
+  // console.log('asjasiiasj');
+
+  let currentCart = getLocalStorage("so-cart") || [];
 
   currentCart.push(product);
 
