@@ -5,10 +5,8 @@ import { findProductById } from "./productData.mjs";
 // console.log(findProductById(productId));
 // console.log(productId)
 
-
 function addProductToCart(product) {
- 
- let currentCart = getLocalStorage("so-cart") || [];
+  let currentCart = getLocalStorage("so-cart") || [];
 
   currentCart.push(product);
 
@@ -16,12 +14,8 @@ function addProductToCart(product) {
 }
 // add to cart button event handler
 export async function addToCartHandler(e) {
+  console.log(e);
   const product = await findProductById(e.target.dataset.id);
- 
-  addProductToCart(product);
   
+  addProductToCart(product);
 }
-
-
-
-
