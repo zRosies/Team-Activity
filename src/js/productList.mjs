@@ -3,7 +3,7 @@ import { getData } from "./productData.mjs";
 
 
 export function productTemplate(data){
-    console.log(data)
+    // console.log(data)
     const product =  `<li class="product-card">
           <a href='product_pages/index.html?product=${data.Id}'>
           <img
@@ -25,13 +25,17 @@ export default function productList(selector, category) {
     productData.then((data)=>{
     // console.log(data)
     let section = document.querySelector(selector)
-    data.forEach((product)=>
+    data.forEach((product)=>{
+        if(product.Id === "880RT" || product.Id === "989CG"){
+            return;
+
+        }
         
         
         // section.innerHTML += productTemplate(product)
         section.insertAdjacentHTML("beforeend", productTemplate(product))
         
-    )});
+    })});
     
 }
 

@@ -1,3 +1,6 @@
+import productList, { productTemplate} from "./productList.mjs";
+
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -27,4 +30,13 @@ export function getParam(param) {
   const urlParams = new URLSearchParams(querying);
   const productID = urlParams.get(param);
   return productID;
+}
+
+function renderListWithTemplate(producTemplate, parentElement, List, position = "beforeend"){
+    producTemplate()
+    let container = document.querySelector(parentElement);
+
+
+    container.insertAdjacentHTML(position, producTemplate);
+
 }
