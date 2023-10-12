@@ -33,7 +33,7 @@ export function getParam(param) {
 }
 
 function renderListWithTemplate(producTemplate, parentElement, List, position = "beforeend"){
-    producTemplate()
+    // producTemplate()
     let container = document.querySelector(parentElement);
 
 
