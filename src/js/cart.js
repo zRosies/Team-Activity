@@ -5,6 +5,7 @@ function renderCartContents() {
   // console.log(cartItems);
 
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  // console.log(typeof cartItems);
   const container = document.querySelector(".product-list");
   container.innerHTML = htmlItems.join("");
 }

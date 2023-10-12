@@ -18,9 +18,10 @@ function renderProductDetails(product) {
     product.NameWithoutBrand;
   document.getElementById("productImage").src = product.Image;
   document.getElementById("productFinalPrice").innerText = product.FinalPrice;
-  document.getElementById("productColorName").innerText = product.FinalPrice;
-  document.getElementById("productFinalPrice").innerText =
-    product.Colors.ColorName;
-  document.getElementById("ProductDescriptionHtmlSimple").innerText =
+  document.getElementById("productColorName").innerText =
+    product.Colors[0].ColorName;
+  // document.getElementById("productFinalPrice").innerText =
+  //   product.Colors.ColorName;
+  document.getElementById("productDescriptionHtmlSimple").innerHTML =
     product.DescriptionHtmlSimple;
 }

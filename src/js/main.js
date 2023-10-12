@@ -1,2 +1,2 @@
 import productList from "./productList.mjs";
-console.log(productList("products"));
+productList(".product-list");
