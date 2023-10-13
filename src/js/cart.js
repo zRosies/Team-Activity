@@ -6,7 +6,7 @@ export function renderCartContents() {
 
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   const container = document.querySelector(".product-list");
-  container.innerHTML = htmlItems.join("");
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
 function cartItemTemplate(item) {
