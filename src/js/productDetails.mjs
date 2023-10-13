@@ -1,30 +1,55 @@
+import { addToCartHandler } from "./product";
+import { getParam, loadHeaderAndFooter} from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
-import { setLocalStorage } from "./utils.mjs";
-let product = {};
 
-export default async function productDetails(productId) {
-  //get detail from product use await to process promise
-  product = await findProductById(productId);
+// add listener to Add to Cart button
 
-  //have the product detail and render out the HTML
-  renderProductDetails();
 
-  // when the HTML is rendered we can add a listener to add to cart button
-  document.getElementById("addToCart").addEventListener("click", addToCart);
+export function renderDetails() {
+  const producId = getParam("product");
+  // console.log(producId)
+  const object = findProductById(producId);
+
+  console.log(object)
+  // console.log(object)
+  
+  object.then((info) => {
+    // console.log(info);
+    
+
+ 
+    const renderedDetail = detailsTemplate(info);
+    // console.log(renderedDetail)
+    
+    const section = document.querySelector("#section");
+    section.innerHTML += renderedDetail;
+    const addCartButton = document.querySelector("#addToCart");
+    addCartButton.addEventListener("click", addToCartHandler);
+  });
 }
-function addToCart() {
-  setLocalStorage("so-cart", product);
+
+function detailsTemplate(detail) {
+  // console.log(detail)
+  
+  const newDetail = 
+          `<section class="product-detail">
+            <h3 id="productName">${detail.Brand.Name}</h3>
+            <h2 class="divider" id="productNameWithoutBrand">${detail.NameWithoutBrand}</h2>
+            <img id="img" class="divider" src="${detail.Image}" alt="${detail.Name}" />
+            <p class="product-card__price" id="productFinalPrice">$${detail.ListPrice}</p>
+            <p class="product__color" id="productColorName">${detail.Colors[0].ColorName}</p>
+            <p class="product__description" id="productDescriptionHtmlSimple">${detail.DescriptionHtmlSimple}</p>
+
+            <div class="product-detail__add">
+              <button id="addToCart" data-id="${detail.Id}">Add to Cart</button>
+            </div>
+          </section>`;
+
+  return newDetail;
 }
-function renderProductDetails() {
-  document.querySelector("#productName").innerText = product.Brand.Name;
-  document.querySelector("#productNameWithoutBrand").innerText =
-    product.NameWithoutBrand;
-  document.querySelector("#productImage").src = product.Image;
-  document.querySelector("#productImage").alt = product.Name;
-  document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
-  document.querySelector("#productColorName").innerText =
-    product.Colors[0].ColorName;
-  document.querySelector("#productDescriptionHtmlSimple").innerHTML =
-    product.DescriptionHtmlSimple;
-  document.querySelector("#addToCart").dataset.id = product.Id;
-}
+
+renderDetails();
+loadHeaderAndFooter();
+
+
+

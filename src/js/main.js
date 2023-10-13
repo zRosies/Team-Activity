@@ -1,6 +1,11 @@
-import productList from "./productList.mjs";
-import { renderList } from "../productList.mjs";
+import productList, { productTemplate} from "./productList.mjs";
+import  {loadHeaderAndFooter} from "./utils.mjs"
 
-import { getData } from "./productData.mjs";
-const productdata = getData ();
-productList(".product-list", "tents");
+productList("#product-list", "tents");
+
+loadHeaderAndFooter();
+// loadFromPath("../public/partials/header").then((data)=>console.log(data))
+
+
+
+  

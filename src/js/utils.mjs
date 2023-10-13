@@ -1,3 +1,6 @@
+import productList, { productTemplate} from "./productList.mjs";
+
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -21,21 +24,42 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
 export function getParam(param) {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  return urlParams.get(param);
+  const querying = window.location.search;
+  const urlParams = new URLSearchParams(querying);
+  const productID = urlParams.get(param);
+  return productID;
 }
-export function renderListWithTemplate(
-  templateFn,
-  parentElement,
-  list,
-  position = "afterbegin",
-  clear = true
-) {
-  if (clear) {
-    parentElement.innerHTML = "";
+
+
+async function loadFromPath(path){
+  const res = await fetch(path)
+
+  if(res.ok){
+    const html = res.text()
+    return html
   }
-  const htmlString = list.map(templateFn);
-  parentElement.insertAdjacentHTML(position, htmlString.join(""));
+}
+
+export function loadHeaderAndFooter(){
+  const headerTemplate = loadFromPath("/partials/header.html")
+  .then(data=>renderWithTemplate(data,"body", "afterbegin"));
+  
+  const footerTemplate = loadFromPath("/partials/footer.html")
+  .then(data=>renderWithTemplate(data,"body"))
+  
+
+}
+
+
+function renderWithTemplate(template, parentElement, position = "beforeend"){
+    const templatedToString = `${template}`.toString();
+    // console.log(templatedToString)
+
+    let container = document.querySelector(parentElement);
+
+
+    container.insertAdjacentHTML(position, templatedToString);
+
 }
