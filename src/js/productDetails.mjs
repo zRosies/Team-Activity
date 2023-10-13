@@ -1,18 +1,21 @@
 import { addToCartHandler } from "./product";
-import { getParam } from "./utils.mjs";
+import { getParam, loadHeaderAndFooter} from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
-//
 
 // add listener to Add to Cart button
 
-function renderDetails() {
+
+export function renderDetails() {
   const producId = getParam("product");
   // console.log(producId)
   const object = findProductById(producId);
+
+  console.log(object)
   // console.log(object)
   
   object.then((info) => {
     // console.log(info);
+    
 
  
     const renderedDetail = detailsTemplate(info);
@@ -26,6 +29,7 @@ function renderDetails() {
 }
 
 function detailsTemplate(detail) {
+  // console.log(detail)
   
   const newDetail = 
           `<section class="product-detail">
@@ -45,3 +49,7 @@ function detailsTemplate(detail) {
 }
 
 renderDetails();
+loadHeaderAndFooter();
+
+
+

@@ -32,11 +32,34 @@ export function getParam(param) {
   return productID;
 }
 
-function renderListWithTemplate(producTemplate, parentElement, List, position = "beforeend"){
-    // producTemplate()
+
+async function loadFromPath(path){
+  const res = await fetch(path)
+
+  if(res.ok){
+    const html = res.text()
+    return html
+  }
+}
+
+export function loadHeaderAndFooter(){
+  const headerTemplate = loadFromPath("/partials/header.html")
+  .then(data=>renderWithTemplate(data,"body", "afterbegin"));
+  
+  const footerTemplate = loadFromPath("/partials/footer.html")
+  .then(data=>renderWithTemplate(data,"body"))
+  
+
+}
+
+
+function renderWithTemplate(template, parentElement, position = "beforeend"){
+    const templatedToString = `${template}`.toString();
+    // console.log(templatedToString)
+
     let container = document.querySelector(parentElement);
 
 
-    container.insertAdjacentHTML(position, producTemplate);
+    container.insertAdjacentHTML(position, templatedToString);
 
 }
