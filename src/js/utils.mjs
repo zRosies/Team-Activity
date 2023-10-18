@@ -43,10 +43,10 @@ async function loadFromPath(path){
 }
 
 export function loadHeaderAndFooter(){
-  const headerTemplate = loadFromPath("/partials/header.html")
+  const headerTemplate = loadFromPath("../partials/header.html")
   .then(data=>renderWithTemplate(data,"body", "afterbegin"));
   
-  const footerTemplate = loadFromPath("/partials/footer.html")
+  const footerTemplate = loadFromPath("../partials/footer.html")
   .then(data=>renderWithTemplate(data,"body"))
   
 

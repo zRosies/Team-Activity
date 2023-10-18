@@ -6,6 +6,7 @@ import { findProductById } from "./productData.mjs";
 
 
 export function renderDetails() {
+  // console.log('ASAAAAAASASASSA');
   const producId = getParam("product");
   // console.log(producId)
   const object = findProductById(producId);
@@ -48,8 +49,9 @@ function detailsTemplate(detail) {
   return newDetail;
 }
 
-renderDetails();
+
 loadHeaderAndFooter();
+renderDetails();
 
 
 
