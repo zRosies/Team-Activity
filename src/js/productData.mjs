@@ -7,34 +7,24 @@ function convertToJson(res) {
   }
 }
 
-// export async function getData(category = "tents") {
-//   return fetch(`../json/${category}.json`)
-//     .then(convertToJson)
-//     .then((data) => data);
-// }
+
 
 export async function getData(category = "tents") {
-  const url = `../json/${category}.json`;
+  const URI = import.meta.env.VITE_API;
+  const response = await fetch(`${URI}products/search/${category}`);
+  const data = await convertToJson(response);
 
-  // Create a request object with the appropriate headers
-  const request = new Request(url, {
-    method: "GET",
-    mode: "cors", // Allow cross-origin requests
-    headers: new Headers({
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    }),
-  });
+  console.log(data)
+  return data.Result;
 
-  return fetch(request)
-    .then(convertToJson)
-    .then((data) => data);
+
 }
 
 
 
-export async function findProductById(id) {
-  const products = await getData();
+export async function findProductById(id,category) {
+  console.log(category)
+  const products = await getData(category);
   return products.find((item) => item.Id === id);
 }
 

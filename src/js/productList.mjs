@@ -4,12 +4,14 @@ import { getData } from "./productData.mjs";
 
 export function productTemplate(data){
     // console.log(data)
-    
+
+    // --------------------------------for later---------------------------
+    // <a href="/product_pages/index.html?${data.Brand.ProductsUrl}"></a>
     const product =  `<li class="product-card">
-          
-        <a href="/product_pages/index.html?product=${data.Id}">
+    
+        <a href="/product_pages/index.html?category=${data.Category}&&product=${data.Id}">
             <img
-            src="${data.Image}"
+            src="${data.Images.PrimaryMedium}"
             alt="${data.Name}"
             />
             <h3 class="card__brand">${data.Brand.Name}</h3>
@@ -20,23 +22,24 @@ export function productTemplate(data){
       return product;
   }
 
-export default function productList(selector, category) {
+export default function productList(selector, productData, place = "beforeend") {
     
-    const productData = getData(category); //category is tents by default it's not needed
+    // const productData = getData(category); //category is tents by default it's not needed
 
-
+    const handleduplicated = []
     productData.then((data)=>{
+        
     // console.log(data)
     let section = document.querySelector(selector)
     data.forEach((product)=>{
-        if(product.Id === "880RT" || product.Id === "989CG"){
-            return;
+        console.log(data)
 
-        }
+       
+       
         
         
         // section.innerHTML += productTemplate(product)
-        section.insertAdjacentHTML("beforeend", productTemplate(product))
+        section.insertAdjacentHTML(place, productTemplate(product))
         
     })});
     

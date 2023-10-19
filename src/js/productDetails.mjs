@@ -1,17 +1,25 @@
 import { addToCartHandler } from "./product";
 import { getParam, loadHeaderAndFooter} from "./utils.mjs";
-import { findProductById } from "./productData.mjs";
+import { findProductById, getData } from "./productData.mjs";
+import productList from "./productList.mjs";
 
 // add listener to Add to Cart button
 
 
-export function renderDetails() {
-  // console.log('ASAAAAAASASASSA');
-  const producId = getParam("product");
-  // console.log(producId)
-  const object = findProductById(producId);
 
+
+export function renderDetails() {
+
+    //------------------Do it after-------------------
+  // const productID = getParam("Brand")
+
+  const producId = getParam("product");
+  const getCategoryType = getParam("category")
+  // console.log(producId)
+  const object = findProductById(producId, getCategoryType);
   console.log(object)
+
+  // console.log(object)
   // console.log(object)
   
   object.then((info) => {
@@ -36,7 +44,7 @@ function detailsTemplate(detail) {
           `<section class="product-detail">
             <h3 id="productName">${detail.Brand.Name}</h3>
             <h2 class="divider" id="productNameWithoutBrand">${detail.NameWithoutBrand}</h2>
-            <img id="img" class="divider" src="${detail.Image}" alt="${detail.Name}" />
+            <img id="img" class="divider" src="${detail.Images.PrimaryLarge}" alt="${detail.Name}" />
             <p class="product-card__price" id="productFinalPrice">$${detail.ListPrice}</p>
             <p class="product__color" id="productColorName">${detail.Colors[0].ColorName}</p>
             <p class="product__description" id="productDescriptionHtmlSimple">${detail.DescriptionHtmlSimple}</p>
@@ -52,6 +60,8 @@ function detailsTemplate(detail) {
 
 loadHeaderAndFooter();
 renderDetails();
+
+// productList('#section',)
 
 
 
