@@ -14,13 +14,11 @@ export function renderDetails() {
   // const productID = getParam("Brand")
 
   const producId = getParam("product");
-  const getCategoryType = getParam("category")
+  console.log(producId)
   // console.log(producId)
-  const object = findProductById(producId, getCategoryType);
+  const object = findProductById(`product/${producId}`);
   console.log(object)
-
-  // console.log(object)
-  // console.log(object)
+ 
   
   object.then((info) => {
     // console.log(info);
