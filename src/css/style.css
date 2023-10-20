@@ -122,6 +122,7 @@ button {
 .products {
   padding: 0.5em;
 }
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
@@ -166,16 +167,15 @@ button {
   width: 100%;
 }
 
-.product-list li img:hover{
+.product-list li img:hover {
   transform: scale(1.1);
 }
-.product-list li img{
- transition: .2s ease-in-out;
+.product-list li img {
+  transition: 0.2s ease-in-out;
 }
 
-.product-list li{
+.product-list li {
   overflow: hidden;
- 
 }
 /* Start cart list card styles */
 .cart-card {
@@ -185,6 +185,23 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+}
+/* Card da página pagina principal */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 10rem);
+  gap: 2rem;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Product List Cards */
+
+.categories img:hover {
+  background: #f0a868;
+  transition: 0.3s ease-in-out;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .cart-card__image {
@@ -214,7 +231,7 @@ button {
   grid-column: 3;
 }
 
-footer{
+footer {
   text-align: center;
 }
 

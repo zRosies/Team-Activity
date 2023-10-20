@@ -7,15 +7,29 @@ function convertToJson(res) {
   }
 }
 
+const URI = import.meta.env.VITE_API;
+
 export async function getData(category = "tents") {
-  return fetch(`../json/${category}.json`)
-    .then(convertToJson)
-    .then((data) => data);
+  
+  const response = await fetch(`${URI}products/search/${category}`);
+  const data = await convertToJson(response);
+
+  console.log(data)
+  return data.Result;
+
+
 }
 
+
+
 export async function findProductById(id) {
-  const products = await getData();
-  return products.find((item) => item.Id === id);
+  console.log()
+  const response = await fetch(`${URI}${id}`)
+  const data = await convertToJson(response)
+ 
+  return data.Result;
+  
+  
 }
 
 
