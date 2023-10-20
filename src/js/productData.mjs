@@ -7,10 +7,10 @@ function convertToJson(res) {
   }
 }
 
-
+const URI = import.meta.env.VITE_API;
 
 export async function getData(category = "tents") {
-  const URI = import.meta.env.VITE_API;
+  
   const response = await fetch(`${URI}products/search/${category}`);
   const data = await convertToJson(response);
 
@@ -22,10 +22,14 @@ export async function getData(category = "tents") {
 
 
 
-export async function findProductById(id,category) {
-  console.log(category)
-  const products = await getData(category);
-  return products.find((item) => item.Id === id);
+export async function findProductById(id) {
+  console.log()
+  const response = await fetch(`${URI}${id}`)
+  const data = await convertToJson(response)
+ 
+  return data.Result;
+  
+  
 }
 
 

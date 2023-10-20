@@ -6,10 +6,10 @@ export function productTemplate(data){
     // console.log(data)
 
     // --------------------------------for later---------------------------
-    // <a href="/product_pages/index.html?${data.Brand.ProductsUrl}"></a>
+    // "></a>
     const product =  `<li class="product-card">
     
-        <a href="/product_pages/index.html?category=${data.Category}&&product=${data.Id}">
+        <a href="/product_pages/index.html?product=${data.Id}">
             <img
             src="${data.Images.PrimaryMedium}"
             alt="${data.Name}"
@@ -24,21 +24,12 @@ export function productTemplate(data){
 
 export default function productList(selector, productData, place = "beforeend") {
     
-    // const productData = getData(category); //category is tents by default it's not needed
-
-    const handleduplicated = []
     productData.then((data)=>{
         
-    // console.log(data)
+ 
     let section = document.querySelector(selector)
     data.forEach((product)=>{
-        console.log(data)
-
-       
-       
         
-        
-        // section.innerHTML += productTemplate(product)
         section.insertAdjacentHTML(place, productTemplate(product))
         
     })});
