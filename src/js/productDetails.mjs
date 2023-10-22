@@ -16,7 +16,7 @@ export function renderDetails() {
   const producId = getParam("product");
   console.log(producId)
   // console.log(producId)
-  const object = findProductById(`product/${producId}`);
+  const object = findProductById(`/product/${producId}`);
   console.log(object)
  
   

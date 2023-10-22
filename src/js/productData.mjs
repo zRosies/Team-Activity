@@ -11,7 +11,7 @@ const URI = import.meta.env.VITE_SERVER_URL;
 
 export async function getData(category = "tents") {
 
-  const response = await fetch(`${URI}products/search/${category}`);
+  const response = await fetch(URI + `/products/search/${category}`);
   console.log(response)
   const data = await convertToJson(response);
 
