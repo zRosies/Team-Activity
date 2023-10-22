@@ -20,6 +20,7 @@ export async function getData(category = "tents") {
 
 }
 
+console.log('changes!!!!')
 
 
 export async function findProductById(id) {
