@@ -7,7 +7,7 @@ function convertToJson(res) {
   }
 }
 
-const URI = import.meta.env.VITE_API;
+const URI = import.meta.env.VITE_SERVER_URL;
 
 export async function getData(category = "tents") {
   
