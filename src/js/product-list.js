@@ -1,13 +1,13 @@
 import { loadHeaderAndFooter } from "./utils.mjs";
 import productList from "./productList.mjs";
 import { getParam } from "./utils.mjs";
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 
 loadHeaderAndFooter();
 
 const categoryType = getParam("category");
 
-const dataJson = getData(categoryType);
+const dataJson = getProductsByCategory(categoryType);
 
 const title = document.querySelector("#title");
 

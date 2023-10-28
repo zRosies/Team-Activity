@@ -1,5 +1,5 @@
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { findProductById } from "./productData.mjs";
+import { findProductById } from "./externalServices.mjs";
 import { loadHeaderAndFooter } from "./utils.mjs";
 // const productId = getParam('product');
 // console.log(findProductById(productId));
@@ -16,6 +16,5 @@ function addProductToCart(product) {
 export async function addToCartHandler(e) {
   console.log(e.target.dataset);
   const product = await findProductById(e.target.dataset.id);
-  console.log(product)
   addProductToCart(product);
 }
