@@ -1,6 +1,6 @@
 import { addToCartHandler } from "./product";
 import { getParam, loadHeaderAndFooter} from "./utils.mjs";
-import { findProductById, getData } from "./productData.mjs";
+import { findProductById} from "./externalServices.mjs";
 import productList from "./productList.mjs";
 
 // add listener to Add to Cart button

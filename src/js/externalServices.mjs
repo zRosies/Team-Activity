@@ -9,7 +9,7 @@ function convertToJson(res) {
 
 const URI = import.meta.env.VITE_SERVER_URL;
 
-export async function getData(category = "tents") {
+export async function getProductsByCategory(category = "tents") {
 
   const response = await fetch(URI + `/products/search/${category}`);
   console.log(response)

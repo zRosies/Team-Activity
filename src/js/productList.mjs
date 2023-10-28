@@ -1,5 +1,4 @@
 
-import { getData } from "./productData.mjs";
 
 
 export function productTemplate(data){

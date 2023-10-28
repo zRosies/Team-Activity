@@ -1,5 +1,5 @@
 import { getLocalStorage } from "./utils.mjs";
-import { checkout } from "./productData.mjs";
+import { checkout } from "./externalServices.mjs";
 
 // function formDataToJSON(formElement) {
 //   const formData = new FormData(formElement),
@@ -53,7 +53,7 @@ const checkoutProcess = {
     const amounts = this.list.map((item) => item.FinalPrice);
 
     this.itemTotal = amounts.reduce((sum, item) => sum + item);
-    subtotal.innerText = "$" + this.itemTotal;
+    subtotal.innerText = "$" + this.itemTotal.toFixed(2);
   },
   
   calculateTotal: function () {
