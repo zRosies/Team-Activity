@@ -90,6 +90,16 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  margin-bottom: 2rem;
+  transition: .2s ease-in-out;
+}
+
+button:hover{
+  background-color: #ff7a05;
+
+}
+main a{
+  text-decoration: none;
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -163,6 +173,7 @@ button {
   margin: auto;
 }
 
+
 .product-detail img {
   width: 100%;
 }
@@ -233,6 +244,36 @@ button {
 
 footer {
   text-align: center;
+}
+
+/* --------------form---------- */
+
+form{
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 2px solid #525b0f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  box-shadow: 2px 2px 5px;
+}
+
+form .order{
+  display: flex;
+  justify-content: space-between;
+}
+
+form fieldset{
+  margin-bottom: 10px ;
+  border-radius: 10px;
+}
+
+form input{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 5px;
 }
 
 @media screen and (min-width: 500px) {
