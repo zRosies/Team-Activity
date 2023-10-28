@@ -22,8 +22,6 @@ export async function getData(category = "tents") {
 }
 
 
-
-
 export async function findProductById(id) {
   console.log()
   const response = await fetch(`${URI}/product/${id}`)
@@ -32,6 +30,18 @@ export async function findProductById(id) {
   return data.Result;
   
   
+}
+
+
+export async function checkout(payload) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  };
+  return await fetch(URI + "checkout/", options).then(convertToJson);
 }
 
 
