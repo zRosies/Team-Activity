@@ -26,7 +26,7 @@ export async function getData(category = "tents") {
 
 export async function findProductById(id) {
   console.log()
-  const response = await fetch(`${URI}${id}`)
+  const response = await fetch(`${URI}/product/${id}`)
   const data = await convertToJson(response)
  
   return data.Result;

@@ -90,6 +90,16 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  margin-bottom: 2rem;
+  transition: .2s ease-in-out;
+}
+
+button:hover{
+  background-color: #ff7a05;
+
+}
+main a{
+  text-decoration: none;
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -162,6 +172,7 @@ button {
   max-width: 500px;
   margin: auto;
 }
+
 
 .product-detail img {
   width: 100%;

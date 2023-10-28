@@ -14,8 +14,8 @@ function addProductToCart(product) {
 }
 // add to cart button event handler
 export async function addToCartHandler(e) {
-  // console.log(e);
+  console.log(e.target.dataset);
   const product = await findProductById(e.target.dataset.id);
-
+  console.log(product)
   addProductToCart(product);
 }
