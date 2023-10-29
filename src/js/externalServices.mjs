@@ -41,7 +41,7 @@ export async function checkout(payload) {
     },
     body: JSON.stringify(payload),
   };
-  return await fetch(URI + "checkout/", options).then(convertToJson);
+  return await fetch(URI + "/checkout", options);
 }
 
 
