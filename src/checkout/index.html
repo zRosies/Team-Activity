@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <!--  -->
+    <!-- 1234123412341234  Valid Card Number -->
 
     <main class="divider">
       <section class="products">
@@ -22,35 +22,35 @@
       <form name="checkout">
         <fieldset>
         <h3>Shipping</h3>
-        <label for="">First Name
-          <input type="text" placeholder="John">
+        <label for="fname">First Name
+          <input type="text" placeholder="John" id="firstName" name="fname">
         </label>
-        <label for="">Last Name
-          <input type="text" placeholder="Doe">
+        <label for="lname">Last Name
+          <input type="text" placeholder="Doe" name="lname">
         </label>
-        <label for="">Street
-          <input type="text" placeholder="123 Main St">
+        <label for="street">Street
+          <input type="text" placeholder="123 Main St" name="street">
         </label>
-        <label for="">City
-          <input type="text" placeholder="Example City">
+        <label for="city">City
+          <input type="text" placeholder="Example City" name="city">
         </label>
-        <label for="">State
-          <input type="text" placeholder="CA">
+        <label for="state">State
+          <input type="text" placeholder="CA" name="state">
         </label>
         <label for="zip">Zip
-          <input type="text" placeholder="12345" name="zip" id="zip">
+          <input type="text" placeholder="12345" name="zip" id="zip" value="83440">
         </label>
       </fieldset>
       <fieldset>
         <h3>Payment</h3>
-        <label for="">Card Number
-          <input type="text" placeholder="1234 5678 9012 3456">
+        <label for="cardNumber">Card Number
+          <input type="text" placeholder="1234 5678 9012 3456" name="cardNumber" value="" pattern=".{16,}" required>
         </label>
-        <label for="">Expiration
-          <input type="text" placeholder="MM/YY">
+        <label for="expiration">Expiration
+          <input type="text" placeholder="MM/YY" name="expiration" value="02/25">
         </label>
-        <label for="">Security Code
-          <input type="text" placeholder="123">
+        <label for="code">Security Code
+          <input type="text" placeholder="123" name="code" value="123">
         </label>
       </fieldset>
       <fieldset class="ordersum">
@@ -61,7 +61,7 @@
         <div class="order"><p>Shipping Estimate</p> <span id="shipping"></span></div>
         <div class="order"><p>Tax</p> <span id="tax"></span></div>
         <div class="order"><h4>Order Total</h4> <span id="total"></span></div>
-        <button>Check</button>
+        <button>Pay</button>
       </fieldset>  
 
       </form>
