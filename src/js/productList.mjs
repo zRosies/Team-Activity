@@ -13,7 +13,7 @@ function productCardTemplate(product) {
   </li>`;
   return template;
 }
-export default async function productList(selector) {
-  const details = await getData();
+export default async function productList(selector, category) {
+  const details = await getData(category);
   renderListWithTemplate(productCardTemplate, selector, details);
 }

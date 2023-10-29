@@ -43,3 +43,40 @@ export function renderListWithTemplate(
     });
   }
 }
+
+export async function renderWithTemplate(
+  templatefn,
+  parentElement,
+  data,
+  callback,
+  position = "afterbegin",
+  clear = true
+) {
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  const htmlData = await templatefn(data);
+  parentElement.insertAdjacentHTML(position, htmlData);
+  if (callback) {
+    callback(data);
+  }
+}
+function loadTemplate(path) {
+  //currying is awesome
+  return async function () {
+    const response = await fetch(path);
+    if (response.ok) {
+      const data = await response.text();
+      return data;
+    }
+  };
+}
+
+export function loadHeaderFooter() {
+  const headerTemplatefn = loadTemplate("/partials/header.html");
+  const footerTemplatefn = loadTemplate("/partials/footer.html");
+  const header = document.querySelector("#main-header");
+  const footer = document.querySelector("#main-footer");
+  renderWithTemplate(headerTemplatefn, header);
+  renderWithTemplate(footerTemplatefn, footer);
+}

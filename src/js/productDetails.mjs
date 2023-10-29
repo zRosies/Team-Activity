@@ -12,7 +12,7 @@ export default async function productDetails(productId) {
 function addToCart() {
   setLocalStorage("so-cart", details);
 }
-function renderProductDetails(product) {
+export function renderProductDetails(product) {
   document.getElementById("productName").innerText = product.Name;
   document.getElementById("productNameWithoutBrand").innerText =
     product.NameWithoutBrand;

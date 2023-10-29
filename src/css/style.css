@@ -123,10 +123,12 @@ button {
   padding: 0.5em;
 }
 .product-list {
-  display: flex;
+  /* display: flex; */
   /* flex-flow: row wrap; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
   list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   padding: 0;
 }
 .product-list a {

@@ -21,4 +21,5 @@ const addCartButton = document.querySelector("#addToCart");
 // add listener to Add to Cart button
 addCartButton.addEventListener("click", addToCartHandler);
 const productId = getParam("product");
+console.log(productId);
 productDetails(productId);
