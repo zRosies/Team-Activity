@@ -15,6 +15,10 @@
   <body>
     <!-- 1234123412341234  Valid Card Number -->
 
+    <div class="errors">
+      
+    </div>
+
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
@@ -23,34 +27,34 @@
         <fieldset>
         <h3>Shipping</h3>
         <label for="fname">First Name
-          <input type="text" placeholder="John" id="firstName" name="fname">
+          <input type="text" placeholder="John" id="firstName" name="fname" required>
         </label>
         <label for="lname">Last Name
-          <input type="text" placeholder="Doe" name="lname">
+          <input type="text" placeholder="Doe" name="lname" required>
         </label>
         <label for="street">Street
-          <input type="text" placeholder="123 Main St" name="street">
+          <input type="text" placeholder="123 Main St" name="street" required>
         </label>
         <label for="city">City
-          <input type="text" placeholder="Example City" name="city">
+          <input type="text" placeholder="Example City" name="city" required>
         </label>
         <label for="state">State
-          <input type="text" placeholder="CA" name="state">
+          <input type="text" placeholder="CA" name="state" required>
         </label>
         <label for="zip">Zip
-          <input type="text" placeholder="12345" name="zip" id="zip" value="">
+          <input type="text" placeholder="12345" name="zip" id="zip" value="" required>
         </label>
       </fieldset>
       <fieldset>
         <h3>Payment</h3>
         <label for="cardNumber">Card Number
-          <input type="text" placeholder="1234 5678 9012 3456" name="cardNumber" value="" pattern=".{16,}" required>
+          <input type="text" placeholder="1234 5678 9012 3456" name="cardNumber" value="" required>
         </label>
         <label for="expiration">Expiration
-          <input type="text" placeholder="MM/YY" name="expiration" value="">
+          <input type="text" placeholder="MM/YY" name="expiration" value="" required>
         </label>
         <label for="code">Security Code
-          <input type="text" placeholder="123" name="code" value="">
+          <input type="text" placeholder="123" name="code" value="" required>
         </label>
       </fieldset>
       <fieldset class="ordersum">

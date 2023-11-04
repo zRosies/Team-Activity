@@ -1,12 +1,11 @@
 import checkoutProcess from "./checkoutProcess.mjs";
-import { checkout } from "./externalServices.mjs";
 import { loadHeaderAndFooter } from "./utils.mjs";
 
 
 
 loadHeaderAndFooter();
 
-
+// const errorDiv = document.createElement(".errors");
 
 checkoutProcess.init("so-cart" ,".ordersum");
 
@@ -17,8 +16,11 @@ zip.addEventListener("blur", ()=>{checkoutProcess.calculateTotal(), checkoutProc
 const form = document.forms["checkout"]
 
 form.addEventListener("submit", (e)=>{
-    console.log(e);
-    e.preventDefault();
+    // console.log(e.target);
+    e.preventDefault()
+    checkoutProcess.init("so-cart" ,".ordersum");
+    checkoutProcess.calculateTotal()
+    
     checkoutProcess.checkout(e.target);
 })
 

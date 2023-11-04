@@ -120,6 +120,38 @@ main a{
   fill: gray;
 }
 
+.errors div{
+  display: flex;
+  justify-content: space-between;
+  background: #f0a868;
+  border: 2px solid#ff7a05;
+  padding: 10px;
+  color: #fff;
+  font-size: large;
+  align-items: center;
+  cursor: pointer;
+  
+
+}
+
+.errors div span{
+  cursor: pointer;
+  color: #fff;
+  padding: 20px;
+  height: 10px;
+  width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #303030;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.errors div span:hover{
+  background: #646464;
+  transition: .2s ease-in-out;
+}
 /* End cart icon styles */
 
 .mission {
