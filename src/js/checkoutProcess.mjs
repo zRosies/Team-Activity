@@ -77,7 +77,7 @@ const checkoutProcess = {
     orderTotal.innerText = "$" + this.orderTotal;
   },
   checkout: async function(form){
-
+  
 
     
     const json = formDataToJSON(form);
@@ -91,23 +91,19 @@ const checkoutProcess = {
     try {
       const res = await postForm(json);
       console.log(res);
-      // console.log(res);
-     
+      // console.log(res);      
       setLocalStorage("so-cart", []);
+      const order = res.orderId;
 
-      //
 
-      window.location()
-      
-      
+      const expirationDate = new Date()
+      expirationDate.setDate(expirationDate.getTime() + 5 * 60 * 1000);
+
+      document.cookie = `order=${order}; expires=${expirationDate.toUTCString()}`;
+      window.location.href = "sucess.html";
+
       
     } catch (err) {
-      // console.log(err.message);
-
-      //   const object = {
-      //     "cardNumber": "Invalid Card Number",
-      //     "expiration": "Invalid expiration date"
-      // }
 
       for(const key in err.message){
         const value = err.message[key];

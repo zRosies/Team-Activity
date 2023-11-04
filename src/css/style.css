@@ -16,6 +16,28 @@
 * {
   box-sizing: border-box;
 }
+
+.success{
+  background: #ff7a05;
+  border: 2px solid #f0a868;
+  color: #fff;
+  width: 500px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 2px 2px 5px #000;
+}
+
+i{
+  font-size: 3em;
+  margin: 40px;
+
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);

@@ -67,11 +67,7 @@ export function alertMessage(message, scroll = true){
   errosContainer.insertAdjacentHTML("beforeend", formatedMessage);
   errosContainer.appendChild(close);
   
-
   htmlContainer.appendChild(errosContainer);
-
-  console.log(htmlContainer);
-  
 
   close.addEventListener("click", () => {
     errosContainer.remove();
