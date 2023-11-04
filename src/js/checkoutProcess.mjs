@@ -1,5 +1,6 @@
-import { getLocalStorage } from "./utils.mjs";
-import { checkout } from "./externalServices.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { postForm } from "./externalServices.mjs";
+import {alertMessage} from "./utils.mjs"
 
 function formDataToJSON(formElement) {
   const formData = new FormData(formElement),
@@ -76,6 +77,8 @@ const checkoutProcess = {
     orderTotal.innerText = "$" + this.orderTotal;
   },
   checkout: async function(form){
+  
+
     
     const json = formDataToJSON(form);
     // the function because the list is an object with a lot of information so it is just getting
@@ -84,17 +87,35 @@ const checkoutProcess = {
     json.orderTotal = parseFloat(this.orderTotal);
     json.shipping = this.shipping;
     json.tax = parseFloat(this.tax);
-    console.log(json);
+    // console.log(json);
     try {
-      const res = await checkout(json);
+      const res = await postForm(json);
       console.log(res);
+      // console.log(res);      
+      setLocalStorage("so-cart", []);
+      const order = res.orderId;
+
+
+      const expirationDate = new Date()
+      expirationDate.setDate(expirationDate.getTime() + 5 * 60 * 1000);
+
+      document.cookie = `order=${order}; expires=${expirationDate.toUTCString()}`;
+      window.location.href = "sucess.html";
+
+      
     } catch (err) {
-      console.log(err);
+
+      for(const key in err.message){
+        const value = err.message[key];
+        // console.log(`${key}: ${value}`);
+
+        alertMessage(value);
     }
 
 
 
-  }
+
+  }}
 
 };
 

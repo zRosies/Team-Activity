@@ -1,9 +1,14 @@
-function convertToJson(res) {
-  // console.log(res)
+// import {alertMessage} from "./utils.mjs"
+
+async function convertToJson(res) {
+  console.log(res)
+  const data = await res.json();
   if (res.ok) {
-    return res.json();
+    console.log(data);
+    return data;
   } else {
-    throw new Error("Bad Response");
+    throw {name: "servicesError", message: data};
+    
   }
 }
 
@@ -33,15 +38,20 @@ export async function findProductById(id) {
 }
 
 
-export async function checkout(payload) {
+export async function postForm(payload) {
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
+
   };
-  return await fetch(URI + "/checkout", options);
+
+  const url = URI + "/checkout";
+
+  return convertToJson(await fetch(URI + "/checkout", options));
+ 
 }
 
 

@@ -33,6 +33,8 @@ export function getParam(param) {
 }
 
 
+
+
 async function loadFromPath(path){
   const res = await fetch(path)
 
@@ -52,6 +54,30 @@ export function loadHeaderAndFooter(){
 
 }
 
+export function alertMessage(message, scroll = true){
+
+  const formatedMessage = `<p>${message}</p>`;
+
+  const htmlContainer = document.querySelector(".errors");
+  const errosContainer = document.createElement("div");
+  
+  const close = document.createElement("span");
+  close.innerText = "x";
+  
+  errosContainer.insertAdjacentHTML("beforeend", formatedMessage);
+  errosContainer.appendChild(close);
+  
+  htmlContainer.appendChild(errosContainer);
+
+  close.addEventListener("click", () => {
+    errosContainer.remove();
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
 function renderWithTemplate(template, parentElement, position = "beforeend"){
     const templatedToString = `${template}`.toString();

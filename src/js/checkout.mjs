@@ -1,12 +1,9 @@
 import checkoutProcess from "./checkoutProcess.mjs";
-import { checkout } from "./externalServices.mjs";
 import { loadHeaderAndFooter } from "./utils.mjs";
 
 
 
 loadHeaderAndFooter();
-
-
 
 checkoutProcess.init("so-cart" ,".ordersum");
 
@@ -17,18 +14,13 @@ zip.addEventListener("blur", ()=>{checkoutProcess.calculateTotal(), checkoutProc
 const form = document.forms["checkout"]
 
 form.addEventListener("submit", (e)=>{
-    console.log(e);
-    e.preventDefault();
+    // console.log(e.target);
+    e.preventDefault()
+    checkoutProcess.init("so-cart" ,".ordersum");
+    checkoutProcess.calculateTotal()
+    
     checkoutProcess.checkout(e.target);
 })
 
-
-
-// // this is how it would look if we listen for the submit on the form
-// document.forms["checkout"].addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   // e.target would contain our form in this case
-//   checkoutProcess.checkout(e.target);
-// });
 
 
