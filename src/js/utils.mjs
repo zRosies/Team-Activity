@@ -1,5 +1,4 @@
-import productList, { productTemplate} from "./productList.mjs";
-
+import productList, { productTemplate } from "./productList.mjs";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -32,41 +31,37 @@ export function getParam(param) {
   return productID;
 }
 
+async function loadFromPath(path) {
+  const res = await fetch(path);
 
-
-
-async function loadFromPath(path){
-  const res = await fetch(path)
-
-  if(res.ok){
-    const html = res.text()
-    return html
+  if (res.ok) {
+    const html = res.text();
+    return html;
   }
 }
 
-export function loadHeaderAndFooter(){
-  const headerTemplate = loadFromPath("../partials/header.html")
-  .then(data=>renderWithTemplate(data,"body", "afterbegin"));
-  
-  const footerTemplate = loadFromPath("../partials/footer.html")
-  .then(data=>renderWithTemplate(data,"body"))
-  
+export function loadHeaderAndFooter() {
+  const headerTemplate = loadFromPath("../partials/header.html").then((data) =>
+    renderWithTemplate(data, "body", "afterbegin")
+  );
 
+  const footerTemplate = loadFromPath("../partials/footer.html").then((data) =>
+    renderWithTemplate(data, "body")
+  );
 }
 
-export function alertMessage(message, scroll = true){
-
+export function alertMessage(message, scroll = true) {
   const formatedMessage = `<p>${message}</p>`;
 
   const htmlContainer = document.querySelector(".errors");
   const errosContainer = document.createElement("div");
-  
+
   const close = document.createElement("span");
   close.innerText = "x";
-  
+
   errosContainer.insertAdjacentHTML("beforeend", formatedMessage);
   errosContainer.appendChild(close);
-  
+
   htmlContainer.appendChild(errosContainer);
 
   close.addEventListener("click", () => {
@@ -75,17 +70,19 @@ export function alertMessage(message, scroll = true){
 
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 }
 
-function renderWithTemplate(template, parentElement, position = "beforeend"){
-    const templatedToString = `${template}`.toString();
-    // console.log(templatedToString)
+export function renderWithTemplate(
+  template,
+  parentElement,
+  position = "beforeend"
+) {
+  const templatedToString = `${template}`.toString();
+  // console.log(templatedToString)
 
-    let container = document.querySelector(parentElement);
+  let container = document.querySelector(parentElement);
 
-
-    container.insertAdjacentHTML(position, templatedToString);
-
+  container.insertAdjacentHTML(position, templatedToString);
 }

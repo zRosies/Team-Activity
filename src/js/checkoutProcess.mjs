@@ -26,6 +26,7 @@ function necessaryItemsFromTheList(items) {
   return simplifiedItems;
 }
 
+
 const checkoutProcess = {
   key: "",
   outputSelector: "",
