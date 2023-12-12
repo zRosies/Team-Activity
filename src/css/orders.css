@@ -132,6 +132,9 @@ main a {
   position: relative;
   text-align: center;
 }
+.cart a {
+  text-decoration: none;
+}
 
 .cart svg {
   width: 25px;
