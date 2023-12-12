@@ -21,4 +21,4 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 
 
 ## URL Netlify
-New Link: https://deploy-preview-27--sparkly-khapse-f7127c.netlify.app/
+New Link: [https://deploy-preview-27--sparkly-khapse-f7127c.netlify.app/](https://github.com/zRosies/Team-Activity)https://github.com/zRosies/Team-Activity
